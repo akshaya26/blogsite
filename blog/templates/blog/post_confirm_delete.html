@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    <!--object is automatically obtained from DeleteView-->
+    Are you sure you want to delete ? {{ object }}
+    <input type="submit" class="btn btn-danger" value="Confirm">
+</form>
+
+
+{% endblock %}

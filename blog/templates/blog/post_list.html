@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+<div class="centerstage">
+  {% for post in post_list %}
+  <h2><a href="{% url 'post_detail' pk=post.pk%}">{{post.title}}</a></h2>
+    <div class="date">
+        <p>Published Date : {{post.published_date|date:"D M Y"}}</p>
+    </div>
+    <!--will execute the statement in approve_comments func and take its count-->
+    <a href="{% url 'post_detail' pk=post.pk %}">Comments:{{post.approve_comments.count}}</a>
+
+    {% endfor %}
+</div>
+
+{% endblock %}
